@@ -47,7 +47,7 @@ Follow these simple steps to run the project on your machine:
    Double-click on `index.html` to open it in your browser, or use the VS Code Live Server extension.
 
 -->🎥 Demo Video
-[https://youtu.be/DltGazOHR1w]
+[https://youtu.be/CrGT9gfT_8c]
 
 -->👥 Team
 1. Vidyut Jauhari - Co-founder, CoRPS (Product & Vision)
