@@ -1,0 +1,87 @@
+{
+  "all_potential_hazards": [
+    {
+      "timestamp": "00:00",
+      "hazard_type": "Unprotected Cyclist & Pedestrians on Road Margin",
+      "description": "A cyclist and pedestrians are moving on the unpaved left road margin without barriers, adjacent to fast-moving traffic with high risk of sudden lane intrusion.",
+      "severity": "Medium"
+    },
+    {
+      "timestamp": "00:01",
+      "hazard_type": "Blind Spot Vehicle in Left Wing Mirror",
+      "description": "Left exterior mirror shows a white passenger vehicle driving closely in the rear quarter blind spot, creating a collision risk if the driver steers left.",
+      "severity": "Medium"
+    },
+    {
+      "timestamp": "00:04",
+      "hazard_type": "Slow-Moving Commercial Mini-Bus Ahead",
+      "description": "A passenger mini-bus ('HORN PLEASE') is traveling ahead in the left-center lane, posing risks of sudden deceleration or unannounced passenger drop-offs.",
+      "severity": "High"
+    },
+    {
+      "timestamp": "00:07",
+      "hazard_type": "Sightline Occlusion while Overtaking Bus",
+      "description": "The ego vehicle overtakes the mini-bus on the right. The bus's bulk completely obscures the driver's forward-left sightline toward the upcoming bus shelter and crossing pedestrians.",
+      "severity": "Critical"
+    },
+    {
+      "timestamp": "00:12",
+      "hazard_type": "Crowded Bus Stop with Pedestrians Spilling onto Carriageway",
+      "description": "Commuters at a roadside bus shelter are standing on the kerb edge and spilling onto the asphalt lane without pedestrian guardrails, creating high collision risk.",
+      "severity": "Critical"
+    },
+    {
+      "timestamp": "00:14",
+      "hazard_type": "Severe Tailgating Vehicle in Rear-View Mirror",
+      "description": "The interior rear-view mirror reveals a trailing car following at an unsafe following distance (<1 second), risking a severe rear-end collision if the driver brakes.",
+      "severity": "Critical"
+    },
+    {
+      "timestamp": "00:16",
+      "hazard_type": "Erratic Two-Wheelers in Mixed Traffic Flow",
+      "description": "Multiple motorcycle riders ahead are navigating without lane discipline across multiple lanes, varying speeds unpredictably near the bus stop pedestrian corridor.",
+      "severity": "High"
+    }
+  ],
+  "critical_hazards_mcqs": [
+    {
+      "timestamp": "00:12",
+      "hazard_description": "Crowded roadside bus shelter with commuters and pedestrians standing right on the carriageway edge.",
+      "mcq": "As you approach a crowded bus shelter on the left where pedestrians are standing directly along the edge of the carriageway, what is the safest driving procedure?",
+      "options": [
+        "A) Maintain current speed and honk continuously to intimidate pedestrians into staying back.",
+        "B) Reduce speed, cover the brake pedal, provide maximum safe lateral clearance, and scan for sudden pedestrian movements.",
+        "C) Accelerate quickly to clear the bus stop hazard zone before any pedestrian steps onto the asphalt.",
+        "D) Veer sharply into the rightmost lane without checking the rear-view or side mirrors."
+      ],
+      "correct_answer": "B) Reduce speed, cover the brake pedal, provide maximum safe lateral clearance, and scan for sudden pedestrian movements.",
+      "safe_action_explanation": "Under Regulation 11 & Regulation 39 of the Motor Vehicles (Driving) Regulations, 2017, motor vehicle drivers must show utmost caution near bus stops, pedestrian crossings, and school zones. Drivers must slow down, maintain a wide buffer, and 'cover the brake' (foot hovering over the pedal) to reduce reaction time if a pedestrian suddenly steps out."
+    },
+    {
+      "timestamp": "00:07",
+      "hazard_description": "Overtaking a large commercial mini-bus that severely occludes forward-left visibility and blind spots.",
+      "mcq": "While overtaking a large mini-bus, its size creates a significant blind spot blocking your view of what lies immediately ahead on the left. How should you conduct this overtake safely?",
+      "options": [
+        "A) Accelerate abruptly, overtake aggressively, and immediately cut back into the left lane right in front of the bus.",
+        "B) Drive alongside the bus at matching speed to observe what the bus driver is doing.",
+        "C) Ensure adequate lateral clearance (at least 1.5m), moderate overtaking speed, anticipate concealed pedestrians or obstacles, and only merge after the bus is clearly visible in the interior rear-view mirror.",
+        "D) Honk aggressively, turn on high beams, and force the mini-bus to move off the road entirely."
+      ],
+      "correct_answer": "C) Ensure adequate lateral clearance (at least 1.5m), moderate overtaking speed, anticipate concealed pedestrians or obstacles, and only merge after the bus is clearly visible in the interior rear-view mirror.",
+      "safe_action_explanation": "Under Regulation 23 of the Motor Vehicles (Driving) Regulations, 2017, overtaking must only be initiated when the road ahead is clearly visible and safe without endangering other road users. When overtaking passenger transport vehicles, drivers must anticipate blind-spot hazards (passengers disembarking or crossing) and confirm clear clearance in mirrors before returning to the lane."
+    },
+    {
+      "timestamp": "00:14",
+      "hazard_description": "A trailing white car is tailgating dangerously close in the interior rear-view mirror.",
+      "mcq": "You observe in your interior rear-view mirror that the car behind is tailgating dangerously close at high speed. What is the correct defensive driving response?",
+      "options": [
+        "A) Tap your brakes hard ('brake check') to startle the tailgater into dropping back.",
+        "B) Smoothly ease off the accelerator to increase your following distance from the vehicle ahead, avoid sudden braking, and facilitate an easy overtake when safe.",
+        "C) Accelerate rapidly beyond the speed limit to widen the gap between your car and the tailgater.",
+        "D) Turn on your four-way hazard flashers while continuing to drive at regular speed to distract the driver."
+      ],
+      "correct_answer": "B) Smoothly ease off the accelerator to increase your following distance from the vehicle ahead, avoid sudden braking, and facilitate an easy overtake when safe.",
+      "safe_action_explanation": "Under Regulation 24 of the Motor Vehicles (Driving) Regulations, 2017, drivers must keep a safe distance from preceding vehicles to stop safely. When tailgated, abruptly braking is illegal under Section 184 of the Motor Vehicles Act (Dangerous Driving). The correct defensive protocol is to increase your forward safety cushion, brake smoothly and gradually, and let the tailgater pass."
+    }
+  ]
+}

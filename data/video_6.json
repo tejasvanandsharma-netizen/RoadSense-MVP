@@ -1,0 +1,75 @@
+{
+  "all_potential_hazards": [
+    {
+      "timestamp": "00:03",
+      "hazard_type": "Abrupt Lane Change / Cutting In",
+      "description": "A silver hatchback on the left cuts sharply into the driver's lane without sufficient safe gap.",
+      "severity": "High"
+    },
+    {
+      "timestamp": "00:05",
+      "hazard_type": "Two-Wheeler Following Too Closely / Overtaking",
+      "description": "Motorcyclists maneuvering closely on the right and left sides while lane transitions occur.",
+      "severity": "Medium"
+    },
+    {
+      "timestamp": "00:11",
+      "hazard_type": "Slow-Moving Overloaded Non-Motorized Vehicle",
+      "description": "A heavily loaded three-wheeled cycle cart moving very slowly directly in the center of the lane under the flyover structure.",
+      "severity": "Critical"
+    },
+    {
+      "timestamp": "00:13",
+      "hazard_type": "Slow / Stopping Vehicle on the Right",
+      "description": "A white van on the right lane reduces speed near the overpass pillar, narrowing the clearance to overtake the cart.",
+      "severity": "High"
+    },
+    {
+      "timestamp": "00:15",
+      "hazard_type": "Vulnerable Pedestrians on Roadside Median",
+      "description": "Pedestrians standing and walking along the left barrier edge next to the live traffic lane on a curved section.",
+      "severity": "High"
+    }
+  ],
+  "critical_hazards_mcqs": [
+    {
+      "timestamp": "00:03",
+      "hazard_description": "Silver hatchback abruptly cuts into your travel path from the left lane.",
+      "mcq": "A silver hatchback suddenly cuts into your path from the left lane. What is the safest course of action?",
+      "options": [
+        "A) Accelerate quickly and honk continuously to intimidate the driver.",
+        "B) Swerve immediately into the right lane without checking mirrors.",
+        "C) Ease off the accelerator, apply controlled braking, and re-establish a safe following distance.",
+        "D) Flash your high beams and tailgate closely to signal your displeasure."
+      ],
+      "correct_answer": "C) Ease off the accelerator, apply controlled braking, and re-establish a safe following distance.",
+      "safe_action_explanation": "Under Regulation 23 of the Motor Vehicles (Driving) Regulations 2017, a driver must maintain a safe following distance from the vehicle ahead. When another vehicle cuts in, the driver should smoothly decelerate rather than swerving abruptly, avoiding rear-end collisions or side-swipes with adjacent traffic."
+    },
+    {
+      "timestamp": "00:11",
+      "hazard_description": "Slow-moving, heavily loaded cycle cart obstructing the active lane under an overpass.",
+      "mcq": "You encounter a slow-moving, heavily loaded cycle cart occupying your lane directly ahead on a bend under a flyover. How should you respond?",
+      "options": [
+        "A) Slow down early, scan mirrors for surrounding traffic, and wait for a clear gap before overtaking smoothly.",
+        "B) Honk aggressively and force your vehicle past on the left shoulder.",
+        "C) Overtake immediately on the right regardless of oncoming or adjacent traffic.",
+        "D) Come to a complete stop and wave at the cart driver to move off the road."
+      ],
+      "correct_answer": "A) Slow down early, scan mirrors for surrounding traffic, and wait for a clear gap before overtaking smoothly.",
+      "safe_action_explanation": "According to Regulation 12 of the Motor Vehicles (Driving) Regulations 2017, non-motorized and slow-moving vehicles require caution. Overtaking must only be executed when the road ahead and the side mirrors confirm it is safe to do so without endangering other road users."
+    },
+    {
+      "timestamp": "00:15",
+      "hazard_description": "Pedestrians standing and moving along the narrow median on a blind curve under a flyover.",
+      "mcq": "As you navigate the curve under the flyover, pedestrians are standing near the road edge by the left railing. What should you do?",
+      "options": [
+        "A) Maintain your speed because pedestrians must yield on roadways.",
+        "B) Reduce speed, maintain lateral clearance, and be prepared to stop if a pedestrian steps into the carriageway.",
+        "C) Swerve sharply to the right into the next lane without checking mirrors.",
+        "D) Turn on hazard warning lights and accelerate past them quickly."
+      ],
+      "correct_answer": "B) Reduce speed, maintain lateral clearance, and be prepared to stop if a pedestrian steps into the carriageway.",
+      "safe_action_explanation": "Under Section 38 of the Motor Vehicles (Driving) Regulations 2017, drivers must show special caution towards vulnerable road users, including pedestrians near the roadway. Reducing speed and allowing adequate lateral buffer prevents collisions if a pedestrian suddenly enters the lane."
+    }
+  ]
+}

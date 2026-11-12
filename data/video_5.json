@@ -1,0 +1,75 @@
+{
+"all_potential_hazards": [
+{
+"timestamp": "00:02",
+"hazard_type": "Overtaking Vehicle Cutting In",
+"description": "A dark sedan rapidly overtakes from the right and cuts back into the lane closely in front of the vehicle, reducing safe following distance.",
+"severity": "Critical"
+},
+{
+"timestamp": "00:06",
+"hazard_type": "Consecutive Close Overtake",
+"description": "A second vehicle (silver hatchback) overtakes aggressively on the right along a narrow undivided road as oncoming traffic begins to appear.",
+"severity": "Critical"
+},
+{
+"timestamp": "00:11",
+"hazard_type": "Approaching Oncoming Traffic",
+"description": "Oncoming vehicles approach on the opposite lane on a relatively narrow roadway with minimal shoulder space and tree canopy obscuring road edges.",
+"severity": "Medium"
+},
+{
+"timestamp": "00:15",
+"hazard_type": "Two-Wheeler Overtaking from Behind",
+"description": "In the interior rear-view mirror, a motorcyclist dangerously weaves past the following white car closely behind our vehicle.",
+"severity": "Critical"
+},
+{
+"timestamp": "00:17",
+"hazard_type": "Reduced Visibility on Curved Road",
+"description": "The roadway bends slightly to the right with roadside foliage and oncoming traffic approaching with headlights, requiring speed adjustment.",
+"severity": "Medium"
+}
+],
+"critical_hazards_mcqs": [
+{
+"timestamp": "00:02",
+"hazard_description": "Dark sedan overtakes and abruptly merges into your lane ahead, cutting following distance.",
+"mcq": "When a vehicle overtakes you and cuts closely into your lane ahead, what is the safest immediate action?",
+"options": [
+"A) Accelerate and honk to signal displeasure at the driver's dangerous maneuver",
+"B) Maintain your current speed and flash high-beam headlights repeatedly",
+"C) Ease off the accelerator and gently increase your following distance to recreate a safe buffer",
+"D) Swerve abruptly onto the left unpaved shoulder to steer clear"
+],
+"correct_answer": "C) Ease off the accelerator and gently increase your following distance to recreate a safe buffer",
+"safe_action_explanation": "Under Regulation 23 of the Motor Vehicles (Driving) Regulations 2017, drivers must maintain a safe following distance sufficient to stop safely. When cut off by an overtaking vehicle, smoothly releasing the accelerator creates a safe 2-to-3-second buffer without risking a rear-end collision from trailing vehicles."
+},
+{
+"timestamp": "00:06",
+"hazard_description": "A second vehicle accelerates rapidly to overtake on the right along a narrow road.",
+"mcq": "You observe in your right side mirror that another vehicle is rapidly overtaking you on a narrow undivided road. What should you do?",
+"options": [
+"A) Keep to the left, maintain a steady speed or ease off slightly, and avoid accelerating",
+"B) Speed up to prevent them from overtaking before oncoming traffic arrives",
+"C) Shift towards the centerline to block the overtaking vehicle",
+"D) Apply emergency brakes immediately to let them pass as quickly as possible"
+],
+"correct_answer": "A) Keep to the left, maintain a steady speed or ease off slightly, and avoid accelerating",
+"safe_action_explanation": "According to Regulation 14 of the Motor Vehicles (Driving) Regulations 2017, the driver of a vehicle being overtaken must facilitate the maneuver by keeping to the left and must not increase speed until the overtaking vehicle has safely completed the pass."
+},
+{
+"timestamp": "00:15",
+"hazard_description": "A motorcyclist is seen aggressively weaving and overtaking from behind in the rear-view mirror.",
+"mcq": "While scanning your interior rear-view mirror, you spot a two-wheeler rider aggressively overtaking a trailing car right behind you. How should you respond?",
+"options": [
+"A) Brake hard to teach the motorcyclist to maintain distance",
+"B) Maintain lane discipline and steady speed, avoiding abrupt steering or braking",
+"C) Swerve left and right to signal the rider not to overtake",
+"D) Accelerate quickly to open up distance from all trailing vehicles"
+],
+"correct_answer": "B) Maintain lane discipline and steady speed, avoiding abrupt steering or braking",
+"safe_action_explanation": "Erratic maneuvers or sudden braking when vulnerable road users like motorcyclists are filtering or overtaking from behind can trigger severe collisions. Indian driving safety guidelines emphasize predictable driving, lane discipline, and frequent mirror checks before making any directional changes."
+}
+]
+}
