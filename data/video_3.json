@@ -1,0 +1,81 @@
+{
+  "all_potential_hazards": [
+    {
+      "timestamp": "00:02",
+      "hazard_type": "Vulnerable Road Users (Cyclist & Two-Wheelers)",
+      "description": "A cyclist and multiple slow-moving two-wheelers are riding along the left kerb near a bus stop, with risk of sudden swerving into the vehicle's path.",
+      "severity": "Medium"
+    },
+    {
+      "timestamp": "00:05",
+      "hazard_type": "Sudden Braking / Traffic Congestion",
+      "description": "The lead white hatchback (Hyundai i20) and the entire queue of vehicles ahead decelerate abruptly to a halt in congested traffic.",
+      "severity": "Critical"
+    },
+    {
+      "timestamp": "00:08",
+      "hazard_type": "Lane Filtering in Blind Spots",
+      "description": "Motorcyclists are squeezing and lane-filtering aggressively along both the left and right flanks of the vehicle through blind spots.",
+      "severity": "High"
+    },
+    {
+      "timestamp": "00:12",
+      "hazard_type": "Insufficient Following Distance",
+      "description": "The vehicle closes in tightly behind the stationary lead car in bumper-to-bumper traffic, leaving inadequate escape room.",
+      "severity": "High"
+    },
+    {
+      "timestamp": "00:18",
+      "hazard_type": "Heavy Vehicle Proximity (City Bus)",
+      "description": "A large public transit bus moves closely along the right side with limited lateral clearance, creating blind spot risks and pinch points.",
+      "severity": "Critical"
+    },
+    {
+      "timestamp": "00:24",
+      "hazard_type": "Tailgating Following Traffic",
+      "description": "Motorcycles and trailing traffic visible in the rear-view and left side mirrors are following extremely closely with minimal stopping cushion.",
+      "severity": "High"
+    }
+  ],
+  "critical_hazards_mcqs": [
+    {
+      "timestamp": "00:05",
+      "hazard_description": "Traffic ahead rapidly decelerates and comes to a complete halt in bumper-to-bumper conditions.",
+      "mcq": "As you notice the white car ahead and the general traffic column braking abruptly, what is the safest driving procedure?",
+      "options": [
+        "A) Accelerate quickly to close the gap so filtering two-wheelers cannot cut in front of you",
+        "B) Swerve immediately onto the left shoulder or kerbside to bypass the stopped queue",
+        "C) Brake progressively, check the rear-view mirror, and stop leaving enough room to see the rear tyres of the vehicle ahead touching the tarmac",
+        "D) Honk continuously and shift into neutral without using the footbrake"
+      ],
+      "correct_answer": "C) Brake progressively, check the rear-view mirror, and stop leaving enough room to see the rear tyres of the vehicle ahead touching the tarmac",
+      "safe_action_explanation": "Under Regulation 23 of the Motor Vehicles (Driving) Regulations, 2017, a driver must maintain sufficient distance from the vehicle ahead to avoid collision if it slows down or stops abruptly. Stopping where you can still see the lead vehicle's rear tyres touching the tarmac ensures a safety buffer to prevent rear-ending in case of a rollback and provides an escape route without needing to reverse."
+    },
+    {
+      "timestamp": "00:08",
+      "hazard_description": "Multiple two-wheelers lane-filtering and cutting across through side mirror blind spots in stop-and-go traffic.",
+      "mcq": "When multiple two-wheelers are filtering closely on your left and right sides in slow-moving traffic, what should you do?",
+      "options": [
+        "A) Maintain your lane position steadily, avoid sudden lateral steering movements, and scan all mirrors before changing speed or line",
+        "B) Hug the right divider tightly to block two-wheelers from overtaking on the right",
+        "C) Open the driver's side door slightly to warn passing riders to keep away",
+        "D) Veer sharply to the left side to prevent riders from undertaking"
+      ],
+      "correct_answer": "A) Maintain your lane position steadily, avoid sudden lateral steering movements, and scan all mirrors before changing speed or line",
+      "safe_action_explanation": "According to the Motor Vehicles (Driving) Regulations, 2017, drivers must maintain lane discipline and exercise special caution towards vulnerable road users like motorcyclists. Abrupt steering shifts or blocking manoeuvres create severe collision hazards with filtering bikes in blind spots. Drivers should maintain predictable positioning and verify mirrors/blind spots before any lateral movement."
+    },
+    {
+      "timestamp": "00:18",
+      "hazard_description": "A heavy transit bus alongside in congested lanes with restricted lateral clearance.",
+      "mcq": "A heavy city bus is moving parallel to your vehicle on the right side in dense traffic. What primary safety hazard should you anticipate?",
+      "options": [
+        "A) The bus can accelerate instantly and outrun sports cars easily",
+        "B) The bus driver has extensive blind spots, a wide turning radius, and may drift laterally or crowd your lane",
+        "C) The bus is required to yield right-of-way to all smaller passenger vehicles at all times",
+        "D) The bus will always remain completely stationary until all smaller cars have passed"
+      ],
+      "correct_answer": "B) The bus driver has extensive blind spots, a wide turning radius, and may drift laterally or crowd your lane",
+      "safe_action_explanation": "Large commercial vehicles like public buses have significant blind spots (especially on their left flank in India) and substantial body overhang during turns. Under defensive driving principles and Indian traffic guidelines, light motor vehicle drivers must avoid lingering directly beside heavy vehicles in congested bottlenecks and maintain adequate lateral clearance."
+    }
+  ]
+}

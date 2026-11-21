@@ -1,0 +1,69 @@
+{
+  "all_potential_hazards": [
+    {
+      "timestamp": "00:01",
+      "hazard_type": "Abrupt Lane Change / Cutting In",
+      "description": "A silver hatchback on the left suddenly cuts across into the driver's lane in close proximity without maintaining safe following distance.",
+      "severity": "High"
+    },
+    {
+      "timestamp": "00:03",
+      "hazard_type": "Tailgating / Close Following Behind",
+      "description": "An auto-rickshaw is observed following closely in the rear-view mirror while vehicles ahead are maneuvering.",
+      "severity": "Medium"
+    },
+    {
+      "timestamp": "00:12",
+      "hazard_type": "Undertaking Two-Wheeler Cutting Across",
+      "description": "A motorcyclist overtakes from the left blind spot and sharply cuts directly across into the driver's lane ahead.",
+      "severity": "Critical"
+    },
+    {
+      "timestamp": "00:19",
+      "hazard_type": "Roundabout and Zebra Crossing Ahead",
+      "description": "Approaching a circular intersection (roundabout) with a pedestrian zebra crossing, directional chevron boards, and curved traffic flow.",
+      "severity": "High"
+    }
+  ],
+  "critical_hazards_mcqs": [
+    {
+      "timestamp": "00:01",
+      "hazard_description": "A silver car abruptly merges directly across your front bumper from the left lane.",
+      "mcq": "When a vehicle sharply cuts into your lane immediately ahead of you, what is the safest defensive driving action?",
+      "options": [
+        "A) Accelerate and flash high beams to deter the car from merging",
+        "B) Swerve immediately into the adjacent right lane to avoid braking",
+        "C) Ease off the accelerator, apply gentle braking, and re-establish a safe 3-second following distance",
+        "D) Honk continuously and tailgate the vehicle to signal their violation"
+      ],
+      "correct_answer": "C) Ease off the accelerator, apply gentle braking, and re-establish a safe 3-second following distance",
+      "safe_action_explanation": "Under the Motor Vehicles (Driving) Regulations, 2017, drivers must maintain a safe distance from the vehicle ahead. When another driver cuts in abruptly, easing off the accelerator and applying gradual braking helps avoid a collision without risking a rear-end collision from traffic behind."
+    },
+    {
+      "timestamp": "00:13",
+      "hazard_description": "A motorcyclist undertakes on the left and swerves abruptly into your immediate path.",
+      "mcq": "A two-wheeler overtakes aggressively from your left blind spot and cuts directly ahead into your lane. What should you do?",
+      "options": [
+        "A) Maintain current speed and maintain lane position since the two-wheeler is in violation",
+        "B) Check mirrors, gently decelerate, cover the brake pedal, and allow the rider ample safety buffer",
+        "C) Veer sharply toward the median divider to give the rider clearance",
+        "D) Speed up to pass the two-wheeler before it stabilizes in the lane"
+      ],
+      "correct_answer": "B) Check mirrors, gently decelerate, cover the brake pedal, and allow the rider ample safety buffer",
+      "safe_action_explanation": "Vulnerable road users such as motorcyclists can be unpredictable. When overtaken closely on the left (undertaking), defensive driving dictates checking your rear-view mirror, gently reducing speed, and covering the brake to give them sufficient stopping buffer in compliance with safe driving practices under Indian road regulations."
+    },
+    {
+      "timestamp": "00:20",
+      "hazard_description": "Approaching a marked roundabout with a pedestrian zebra crossing and sharp curve.",
+      "mcq": "As you approach this multi-lane roundabout and marked pedestrian crossing, what is the correct driving procedure?",
+      "options": [
+        "A) Maintain cruising speed and enter forcefully to claim right of way over vehicles already in the circle",
+        "B) Reduce speed, check for crossing pedestrians, and give way to traffic already circulating from your right",
+        "C) Switch to the outermost left shoulder to bypass the roundabout queue",
+        "D) Continuously honk and accelerate to clear the zebra crossing before other vehicles arrive"
+      ],
+      "correct_answer": "B) Reduce speed, check for crossing pedestrians, and give way to traffic already circulating from your right",
+      "safe_action_explanation": "According to Regulation 14 of the Motor Vehicles (Driving) Regulations, 2017, drivers approaching a roundabout must slow down and give way to traffic approaching from the right already circulating on the roundabout, and give precedence to pedestrians at pedestrian crossings."
+    }
+  ]
+}

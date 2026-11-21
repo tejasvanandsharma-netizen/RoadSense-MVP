@@ -1,0 +1,13 @@
+# Ignore large video files
+*.mp4
+
+# Ignore local database
+*.db
+
+# Ignore python cache
+__pycache__/
+*.pyc
+
+# Ignore virtual environment (if any)
+venv/
+.venv/

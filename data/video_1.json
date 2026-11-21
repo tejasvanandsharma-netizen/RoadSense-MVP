@@ -1,0 +1,87 @@
+{
+  "all_potential_hazards": [
+    {
+      "timestamp": "00:01",
+      "hazard_type": "Illegal Undertaking & Blind-Spot Cut-in",
+      "description": "Silver Omni van rapidly overtakes from the left blind side and cuts closely across the driver's front bumper into the traveling lane.",
+      "severity": "High"
+    },
+    {
+      "timestamp": "00:03",
+      "hazard_type": "Close-Following / Tailgating Behind",
+      "description": "Inside rear-view mirror displays trailing vehicles maintaining an unsafe following distance, creating high rear-end collision hazard if sudden braking occurs.",
+      "severity": "Medium"
+    },
+    {
+      "timestamp": "00:06",
+      "hazard_type": "Erratic Two-Wheeler Lane Filtering",
+      "description": "Motorcyclists ahead are lane-splitting between lanes without indicators or lane discipline, straddling lane boundaries directly ahead.",
+      "severity": "Medium"
+    },
+    {
+      "timestamp": "00:10",
+      "hazard_type": "Uncontrolled Median Opening Conflict",
+      "description": "Un-signalized gap in the central road median ahead where opposing vehicles (SUVs, autos) wait to cross or enter into ongoing traffic.",
+      "severity": "High"
+    },
+    {
+      "timestamp": "00:14",
+      "hazard_type": "Sudden Severe Cut-in by Lead Van",
+      "description": "Silver Maruti Omni van aggressively swerves from the left lane into the driver's immediate stopping zone without signaling or headway clearance.",
+      "severity": "Critical"
+    },
+    {
+      "timestamp": "00:18",
+      "hazard_type": "Forward Sightline Obstruction & Braking Risk",
+      "description": "The newly merged van closely leads the vehicle, obstructing the driver's view of the road surface, upcoming obstacles, and curb traffic.",
+      "severity": "Medium"
+    },
+    {
+      "timestamp": "00:22",
+      "hazard_type": "Police Barricades & Road Bottleneck",
+      "description": "Yellow and blue police barricades constrict the roadway ahead, inducing abrupt braking, merging conflicts, and narrowing lane geometry.",
+      "severity": "High"
+    }
+  ],
+  "critical_hazards_mcqs": [
+    {
+      "timestamp": "00:14",
+      "hazard_description": "Sudden severe cut-in by silver van from the left side into your safety zone",
+      "mcq": "A commercial van aggressively undertakes from your left blind spot and swerves directly into your lane with minimal clearance. What is the safest and legally correct immediate action?",
+      "options": [
+        "A) Ease off the accelerator, maintain steering stability, and progressively brake while checking your rear-view mirror to re-establish a safe 2-3 second gap.",
+        "B) Honk continuously and accelerate forward to block the van from completing its cut-in maneuver.",
+        "C) Swerve abruptly into the right lane without checking mirrors to maintain your cruising speed.",
+        "D) Apply maximum emergency brakes immediately to a full stop in the active carriageway."
+      ],
+      "correct_answer": "A) Ease off the accelerator, maintain steering stability, and progressively brake while checking your rear-view mirror to re-establish a safe 2-3 second gap.",
+      "safe_action_explanation": "Under Regulation 23 & 24 of the Motor Vehicles (Driving) Regulations 2017, overtaking must be performed on the right; undertaking on the left is illegal. When an errant driver cuts in aggressively, defensive driving requires smoothly yielding right-of-way, easing off the accelerator, and progressively applying brakes while monitoring trailing traffic in the rear-view mirror to prevent multi-vehicle rear-end collisions."
+    },
+    {
+      "timestamp": "00:01",
+      "hazard_description": "Vehicle aggressively undertaking on the left side during lane transition",
+      "mcq": "While accelerating in your lane, you observe a vehicle in your left side mirror rapidly attempting to undertake you on the curb side. How should you react?",
+      "options": [
+        "A) Swerve left toward the curb to cut off their overtaking line.",
+        "B) Maintain your lane position steadily, refrain from accelerating, and allow the overtaking vehicle adequate clearance to pass.",
+        "C) Flash your headlights repeatedly and speed up to force them behind you.",
+        "D) Engage reverse gear or perform an immediate U-turn."
+      ],
+      "correct_answer": "B) Maintain your lane position steadily, refrain from accelerating, and allow the overtaking vehicle adequate clearance to pass.",
+      "safe_action_explanation": "Regulation 23(3) of the Motor Vehicles (Driving) Regulations 2017 explicitly states that a driver of a vehicle being overtaken shall not increase speed or create obstructions. Even though undertaking is prohibited, defensive drivers must preserve predictable lane stability and allow the overtaker safe passage to prevent dangerous sideswipes."
+    },
+    {
+      "timestamp": "00:22",
+      "hazard_description": "Approaching roadside police barricades and narrowing traffic bottleneck",
+      "mcq": "As you drive ahead, you spot yellow and blue police barricades narrowing the lanes with clustered vehicles in front. What is the appropriate driving protocol?",
+      "options": [
+        "A) Accelerate quickly to squeeze past the lead cars before the road constriction begins.",
+        "B) Decelerate smoothly well in advance, increase your following distance, scan for merging vehicles, and be prepared to stop if signaled.",
+        "C) Swerve rapidly between barricades without slowing down if a gap appears open.",
+        "D) Drive onto the wrong side of the carriageway to bypass the bottleneck queue."
+      ],
+      "correct_answer": "B) Decelerate smoothly well in advance, increase your following distance, scan for merging vehicles, and be prepared to stop if signaled.",
+      "safe_action_explanation": "Under Regulations 5 and 27 of the Motor Vehicles (Driving) Regulations 2017, drivers are required to slow down substantially when approaching road obstructions, police check-posts, or narrowed sections. Early gradual deceleration warns following vehicles and ensures ample stopping distance for unpredictable lead braking."
+    }
+  ]
+}
