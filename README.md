@@ -9,10 +9,10 @@ India loses over 170,000 lives annually on roads. Most crashes happen because dr
 We use AI to automate the creation of hazard perception tests. Our backend processes real Indian road videos (Driver's POV) and uses the **Google Gemini API** to detect hazards, assign timestamps, and generate scenario-based MCQs with instant feedback based on Indian Motor Vehicle Rules (MVA).
 
 🛠️ Tech Stack
-1.  Backend:** Python, FastAPI
-2.  Database:** PostgreSQL (Render)
-3.  AI Engine:** Google Gemini API (Video Analysis & MCQ Generation)
-4.  Frontend:** HTML, JavaScript, Tailwind CSS
+1.  Backend:  Python, FastAPI
+2.  Database:  PostgreSQL (Render)
+3.  AI Engine:  Google Gemini API (Video Analysis & MCQ Generation)
+4.  Frontend:  HTML, JavaScript, Tailwind CSS
 
 ✨ Key Features (Working MVP)
 1.  Video POV Player:** Plays real Indian road videos with autoplay, fullscreen, and speed controls.
