@@ -8,10 +8,8 @@
     <style>
         body { background-color: #0f172a; color: #f8fafc; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
         .hide { display: none !important; }
-        /* Custom scrollbar */
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: #1e293b; }
-        ::-webkit-scrollbar-thumb { background: #475569; border-radius: 4px; }
+        .video-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 12px; background: #000; }
+        .video-container video { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; }
     </style>
 </head>
 <body class="min-h-screen flex flex-col">
@@ -25,11 +23,45 @@
                 <p class="text-xs font-normal text-gray-400">AI Hazard Perception Trainer</p>
             </div>
         </div>
-        <button id="restart-btn" onclick="location.reload()" class="hide bg-red-600 hover:bg-red-500 text-white px-5 py-2 rounded-lg font-semibold transition-all shadow-md">Restart Test</button>
+        <div id="header-nav" class="hide flex items-center gap-4">
+            <span id="user-name-display" class="text-sm font-semibold text-gray-300"></span>
+            <button onclick="logout()" class="bg-red-600 hover:bg-red-500 text-white px-4 py-2 rounded-lg font-semibold transition-all shadow-md">Logout</button>
+        </div>
     </header>
 
+    <!-- 0. AUTH SCREEN (Login / Register) -->
+    <main id="auth-screen" class="flex-grow flex items-center justify-center p-6">
+        <div class="bg-gray-800 p-8 rounded-2xl shadow-2xl border border-gray-700 w-full max-w-md">
+            <h2 id="auth-title" class="text-3xl font-bold text-center mb-6 text-yellow-400">Welcome Back</h2>
+            
+            <form id="auth-form" onsubmit="handleAuth(event)" class="space-y-4">
+                <div id="name-group" class="hide">
+                    <label class="block text-sm font-medium text-gray-400 mb-1">Full Name</label>
+                    <input type="text" id="auth-name" class="w-full bg-gray-900 border border-gray-600 rounded-lg px-4 py-2 text-white focus:outline-none focus:border-blue-500" placeholder="Tejasv Sharma">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-400 mb-1">Email</label>
+                    <input type="email" id="auth-email" required class="w-full bg-gray-900 border border-gray-600 rounded-lg px-4 py-2 text-white focus:outline-none focus:border-blue-500" placeholder="you@example.com">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-400 mb-1">Password</label>
+                    <input type="password" id="auth-password" required class="w-full bg-gray-900 border border-gray-600 rounded-lg px-4 py-2 text-white focus:outline-none focus:border-blue-500" placeholder="••••••••">
+                </div>
+                
+                <div id="auth-error" class="hide text-red-400 text-sm text-center font-bold"></div>
+                
+                <button type="submit" id="auth-submit-btn" class="w-full bg-blue-600 hover:bg-blue-500 text-white font-bold py-3 px-4 rounded-lg transition-all mt-4">Login</button>
+            </form>
+            
+            <p class="text-center text-gray-400 mt-6 text-sm">
+                <span id="toggle-text">Don't have an account?</span> 
+                <button onclick="toggleAuthMode()" id="toggle-btn" class="text-blue-400 font-bold hover:underline">Sign Up</button>
+            </p>
+        </div>
+    </main>
+
     <!-- 1. HOME SCREEN -->
-    <main id="home-screen" class="flex-grow flex flex-col items-center justify-center text-center p-6 w-full max-w-4xl mx-auto">
+    <main id="home-screen" class="hide flex-grow flex flex-col items-center justify-center text-center p-6 w-full max-w-4xl mx-auto">
         <h2 class="text-4xl md:text-5xl font-extrabold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-orange-500">
             Train Your Eyes.<br>Save Lives.
         </h2>
@@ -37,67 +69,35 @@
             India loses over 170,000 lives annually on roads. Most crashes happen because drivers spot danger too late. 
             Test your hazard perception skills on real Indian road videos, powered by AI.
         </p>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-10 w-full">
-            <div class="bg-gray-800 p-5 rounded-xl border border-gray-700 shadow-lg"><span class="text-3xl font-bold text-yellow-400">10</span><br><span class="text-sm text-gray-400 font-medium">Random Scenarios</span></div>
-            <div class="bg-gray-800 p-5 rounded-xl border border-gray-700 shadow-lg"><span class="text-3xl font-bold text-yellow-400">MVA</span><br><span class="text-sm text-gray-400 font-medium">Rule Compliant</span></div>
-            <div class="bg-gray-800 p-5 rounded-xl border border-gray-700 shadow-lg"><span class="text-3xl font-bold text-yellow-400">AI</span><br><span class="text-sm text-gray-400 font-medium">Powered Feedback</span></div>
-        </div>
         <button onclick="startTest()" class="bg-blue-600 hover:bg-blue-500 text-white px-10 py-4 rounded-xl font-bold text-xl transition-all shadow-lg shadow-blue-500/30 transform hover:scale-105">
             Start Assessment
         </button>
     </main>
 
-    <!-- 2. TEST SCREEN (Top-Bottom Layout, No Dabba) -->
-    <main id="test-screen" class="hide flex-grow w-full max-w-[1200px] mx-auto p-4 md:p-6 flex flex-col gap-6">
-        
-        <!-- Top: Video Player (Full Width) -->
-        <div class="w-full bg-gray-800 p-4 rounded-xl shadow-2xl border border-gray-700 flex flex-col">
-            <div class="flex justify-between items-center mb-3">
-                <h2 class="text-lg font-bold text-yellow-400">Driver's POV</h2>
-                <span id="progress-text" class="text-sm font-mono text-gray-300 bg-gray-900 px-3 py-1 rounded-full border border-gray-700">1 / 10</span>
-            </div>
-            
-            <div class="w-full bg-gray-700 rounded-full h-2 mb-4">
-                <div id="progress-bar" class="bg-blue-500 h-2 rounded-full transition-all duration-300" style="width: 10%"></div>
-            </div>
-            
-            <!-- Using aspect-video to keep it perfectly wide and not 'dabba' -->
-            <div class="w-full aspect-video rounded-xl overflow-hidden border-2 border-gray-600 shadow-inner bg-black">
-                <video id="road-video" controls muted autoplay playsinline preload="auto" controlsList="nodownload nopictureinpicture" oncontextmenu="return false;" class="w-full h-full object-cover">
-                    <source src="" type="video/mp4">
-                </video>
-            </div>
-            
-            <div class="mt-4 flex justify-between items-center text-sm font-medium bg-gray-900 p-3 rounded-lg">
-                <span class="text-gray-400">Current Score: <strong id="score-display" class="text-green-400 text-lg">0</strong></span>
-                <span class="text-gray-500 text-xs italic flex items-center gap-1">
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                    Click fullscreen icon on video to expand
-                </span>
+    <!-- 2. TEST SCREEN -->
+    <main id="test-screen" class="hide flex-grow w-full max-w-[1400px] mx-auto p-4 md:p-6 grid grid-cols-1 lg:grid-cols-12 gap-6">
+        <div class="lg:col-span-7 flex flex-col">
+            <div class="bg-gray-800 p-4 rounded-xl shadow-2xl border border-gray-700">
+                <div class="flex justify-between items-center mb-3">
+                    <h2 class="text-lg font-bold text-yellow-400">Driver's POV</h2>
+                    <span id="progress-text" class="text-sm font-mono text-gray-300 bg-gray-900 px-3 py-1 rounded-full">1 / 10</span>
+                </div>
+                <div class="w-full bg-gray-700 rounded-full h-2 mb-4">
+                    <div id="progress-bar" class="bg-blue-500 h-2 rounded-full transition-all duration-300" style="width: 10%"></div>
+                </div>
+                <div class="w-full aspect-video rounded-xl overflow-hidden border-2 border-gray-600 bg-black">
+                    <video id="road-video" controls muted autoplay playsinline class="w-full h-full object-cover">
+                        <source src="" type="video/mp4">
+                    </video>
+                </div>
             </div>
         </div>
-
-        <!-- Bottom: MCQ Assessment (Full Width) -->
-        <div class="w-full bg-gray-800 p-6 rounded-xl shadow-2xl border border-gray-700 flex flex-col relative">
-            <div class="flex justify-between items-center mb-4 border-b border-gray-700 pb-3">
-                <h2 class="text-xl font-bold text-white">Scenario Assessment</h2>
-                <button id="skip-btn" onclick="nextQuestion()" class="text-xs font-semibold text-gray-300 hover:text-white transition-colors flex items-center gap-1 bg-gray-700 px-3 py-1.5 rounded-md border border-gray-600">
-                    Skip <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
-                </button>
-            </div>
-            
-            <div id="quiz-container" class="flex-grow">
-                <!-- Questions inject here -->
-            </div>
-            
-            <!-- Nav Buttons -->
-            <div class="mt-6 pt-4 border-t border-gray-700 flex justify-between items-center">
-                <button id="prev-btn" onclick="prevQuestion()" class="bg-gray-700 hover:bg-gray-600 text-white px-5 py-2 rounded-lg font-semibold transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2">
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg> Previous
-                </button>
-                <button id="next-btn" onclick="nextQuestion()" class="bg-blue-600 hover:bg-blue-500 text-white px-6 py-2 rounded-lg font-semibold transition-all flex items-center gap-2 shadow-lg shadow-blue-500/20">
-                    Next <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
-                </button>
+        <div class="lg:col-span-5 flex flex-col">
+            <div class="bg-gray-800 p-5 rounded-xl shadow-2xl border border-gray-700 relative">
+                <h2 class="text-xl font-bold text-white mb-4 border-b border-gray-700 pb-3 flex justify-between">
+                    Assessment <span id="score-display" class="text-green-400">Score: 0</span>
+                </h2>
+                <div id="quiz-container"></div>
             </div>
         </div>
     </main>
@@ -107,194 +107,182 @@
         <div class="bg-gray-800 p-10 rounded-2xl shadow-2xl border border-gray-700 max-w-lg w-full text-center">
             <div class="text-6xl mb-4">🏆</div>
             <h2 class="text-3xl font-bold text-white mb-2">Assessment Complete!</h2>
-            <p class="text-gray-400 mb-8">You have successfully completed the hazard perception test.</p>
-            
-            <div class="bg-gray-900 rounded-xl p-6 mb-8 border border-gray-700">
+            <div class="bg-gray-900 rounded-xl p-6 mb-8 mt-6 border border-gray-700">
                 <p class="text-sm text-gray-400 uppercase tracking-widest mb-1">Final Score</p>
                 <div class="text-5xl font-extrabold text-green-400">
                     <span id="final-score">0</span> <span class="text-gray-500 text-3xl">/</span> <span id="total-questions">10</span>
                 </div>
             </div>
-            
-            <button onclick="location.reload()" class="w-full bg-blue-600 hover:bg-blue-500 text-white font-bold py-3 px-4 rounded-lg transition-all shadow-lg shadow-blue-500/30">
-                Take Test Again
-            </button>
+            <button onclick="location.reload()" class="w-full bg-blue-600 hover:bg-blue-500 text-white font-bold py-3 px-4 rounded-lg">Take Test Again</button>
         </div>
     </main>
 
     <script>
+        const API_BASE = "https://roadsense-backend-2uk4.onrender.com"; 
         let currentQuestions = [];
         let currentQuestionIndex = 0;
         let score = 0;
-        let userAnswers = {}; 
-        const API_BASE = "https://roadsense-backend-2uk4.onrender.com";
+        let isLoginMode = true;
+
+        window.onload = () => {
+            const token = localStorage.getItem('token');
+            if (token) {
+                showScreen('home-screen');
+                document.getElementById('header-nav').classList.remove('hide');
+            } else {
+                showScreen('auth-screen');
+            }
+        };
+
+        function showScreen(screenId) {
+            ['auth-screen', 'home-screen', 'test-screen', 'result-screen'].forEach(id => {
+                document.getElementById(id).classList.add('hide');
+            });
+            document.getElementById(screenId).classList.remove('hide');
+        }
+
+        function toggleAuthMode() {
+            isLoginMode = !isLoginMode;
+            document.getElementById('auth-title').innerText = isLoginMode ? "Welcome Back" : "Create Account";
+            document.getElementById('auth-submit-btn').innerText = isLoginMode ? "Login" : "Sign Up";
+            document.getElementById('toggle-text').innerText = isLoginMode ? "Don't have an account?" : "Already have an account?";
+            document.getElementById('toggle-btn').innerText = isLoginMode ? "Sign Up" : "Login";
+            
+            if (isLoginMode) {
+                document.getElementById('name-group').classList.add('hide');
+                document.getElementById('auth-name').required = false;
+            } else {
+                document.getElementById('name-group').classList.remove('hide');
+                document.getElementById('auth-name').required = true;
+            }
+            document.getElementById('auth-error').classList.add('hide');
+        }
+
+        async function handleAuth(event) {
+            event.preventDefault();
+            const email = document.getElementById('auth-email').value;
+            const password = document.getElementById('auth-password').value;
+            const name = document.getElementById('auth-name').value;
+            const errorDiv = document.getElementById('auth-error');
+
+            try {
+                if (isLoginMode) {
+                    const formData = new URLSearchParams();
+                    formData.append('username', email);
+                    formData.append('password', password);
+
+                    const response = await fetch(`${API_BASE}/api/login`, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                        body: formData
+                    });
+                    const data = await response.json();
+                    
+                    if (!response.ok) throw new Error(data.detail || "Login failed");
+                    
+                    localStorage.setItem('token', data.access_token);
+                    localStorage.setItem('userEmail', email);
+                    alert("Login Successful!");
+                    location.reload(); 
+
+                } else {
+                    const response = await fetch(`${API_BASE}/api/register`, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ email, password, full_name: name })
+                    });
+                    const data = await response.json();
+                    
+                    if (!response.ok) throw new Error(data.detail || "Registration failed");
+                    
+                    alert("Account created! Please login.");
+                    toggleAuthMode(); 
+                }
+            } catch (error) {
+                errorDiv.innerText = error.message;
+                errorDiv.classList.remove('hide');
+            }
+        }
+
+        function logout() {
+            localStorage.removeItem('token');
+            location.reload();
+        }
 
         async function startTest() {
-            document.getElementById('home-screen').classList.add('hide');
-            document.getElementById('test-screen').classList.remove('hide');
-            document.getElementById('restart-btn').classList.remove('hide');
-            
-            document.getElementById('quiz-container').innerHTML = "<div class='text-center text-blue-400 animate-pulse text-lg mt-10'>Fetching AI scenarios...</div>";
+            showScreen('test-screen');
+            document.getElementById('quiz-container').innerHTML = "<div class='text-center text-blue-400 animate-pulse'>Fetching AI scenarios...</div>";
             
             try {
                 const response = await fetch(`${API_BASE}/api/get-random-test`);
                 if (!response.ok) throw new Error("Backend error");
-                
                 const data = await response.json();
                 currentQuestions = data.test_data;
                 currentQuestionIndex = 0;
                 score = 0;
-                userAnswers = {};
-                
                 document.getElementById('total-questions').innerText = currentQuestions.length;
                 showQuestion();
             } catch (error) {
-                console.error(error);
-                document.getElementById('quiz-container').innerHTML = `<div class="text-red-500 text-center font-bold mt-10">Error connecting to backend. Ensure FastAPI is running.</div>`;
+                document.getElementById('quiz-container').innerHTML = `<div class="text-red-500 text-center">Error connecting to backend.</div>`;
             }
         }
 
         function showQuestion() {
             const container = document.getElementById('quiz-container');
-            const skipBtn = document.getElementById('skip-btn');
-            const prevBtn = document.getElementById('prev-btn');
-            const nextBtn = document.getElementById('next-btn');
-            
-            const progressPercent = ((currentQuestionIndex) / currentQuestions.length) * 100;
-            document.getElementById('progress-bar').style.width = `${progressPercent}%`;
-            document.getElementById('progress-text').innerText = `${currentQuestionIndex + 1} / ${currentQuestions.length}`;
-
-            prevBtn.disabled = currentQuestionIndex === 0;
-            
-            if (currentQuestionIndex === currentQuestions.length - 1) {
-                nextBtn.innerHTML = "Submit Test 🏁";
-                nextBtn.classList.remove('bg-blue-600', 'hover:bg-blue-500');
-                nextBtn.classList.add('bg-green-600', 'hover:bg-green-500');
-            } else {
-                nextBtn.innerHTML = `Next <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>`;
-                nextBtn.classList.remove('bg-green-600', 'hover:bg-green-500');
-                nextBtn.classList.add('bg-blue-600', 'hover:bg-blue-500');
-            }
-
-            if(userAnswers[currentQuestions[currentQuestionIndex].id]) {
-                skipBtn.classList.add('hide'); 
-            } else {
-                skipBtn.classList.remove('hide');
+            if (currentQuestionIndex >= currentQuestions.length) {
+                showScreen('result-screen');
+                document.getElementById('final-score').innerText = score;
+                return;
             }
 
             const q = currentQuestions[currentQuestionIndex];
-            
+            document.getElementById('progress-text').innerText = `${currentQuestionIndex + 1} / ${currentQuestions.length}`;
+            document.getElementById('progress-bar').style.width = `${((currentQuestionIndex) / currentQuestions.length) * 100}%`;
+
             const videoSource = q.video_id.replace('.json', '.mp4');
             const videoElement = document.getElementById('road-video');
             videoElement.src = videoSource;
             videoElement.load();
             videoElement.play().catch(e => console.log("Autoplay blocked"));
 
-            let html = `
-                <div class="mb-5 bg-gray-900 p-4 rounded-lg border-l-4 border-red-500 shadow-md">
-                    <span class="text-xs font-bold text-red-400 bg-red-400/10 px-2 py-1 rounded border border-red-400/20 mb-2 inline-block">Hazard @ ${q.timestamp}</span>
-                    <p class="text-md font-medium leading-relaxed">${q.mcq}</p>
-                </div>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-3 pb-4">
-            `;
-
-            const existingAnswer = userAnswers[q.id];
-
+            let html = `<div class="mb-4 bg-gray-900 p-3 rounded-lg border-l-4 border-red-500"><p class="text-sm font-medium">${q.mcq}</p></div><div class="space-y-2">`;
             q.options.forEach((opt, index) => {
-                let btnClass = "bg-gray-700 border-gray-600 hover:bg-gray-600 text-white";
-                let disabled = "";
-
-                if (existingAnswer) {
-                    disabled = "disabled";
-                    if (opt === existingAnswer.correct_answer) {
-                        btnClass = "bg-green-900/50 border-green-500 text-green-100";
-                    } else if (opt === existingAnswer.selected_option) {
-                        btnClass = "bg-red-900/50 border-red-500 text-red-100";
-                    } else {
-                        btnClass = "bg-gray-800 border-gray-700 text-gray-500";
-                    }
-                }
-
-                html += `
-                    <button class="w-full text-left p-3 rounded-lg border transition-all text-sm option-btn ${btnClass}" 
-                            ${disabled} onclick="submitAnswer(${q.id}, '${opt.replace(/'/g, "\\'")}', this)">
-                        <span class="font-bold mr-2">${String.fromCharCode(65 + index)})</span> ${opt.substring(3).trim()}
-                    </button>
-                `;
+                html += `<button class="w-full text-left p-3 rounded-lg bg-gray-700 hover:bg-gray-600 border border-gray-600 text-sm option-btn" onclick="submitAnswer(${q.id}, '${opt.replace(/'/g, "\\'")}', this)">${String.fromCharCode(65 + index)}) ${opt.substring(3).trim()}</button>`;
             });
-
-            html += `</div><div id="explanation-${q.id}" class="hidden p-4 rounded-lg border-l-4 mt-2"></div>`;
+            html += `</div><div id="explanation-${q.id}" class="hidden mt-4 p-3 rounded-lg border-l-4"></div>`;
             container.innerHTML = html;
-
-            if (existingAnswer) {
-                showExplanation(q.id, existingAnswer.is_correct, existingAnswer.correct_answer, existingAnswer.explanation);
-            }
         }
 
         async function submitAnswer(questionId, selectedOption, btnElement) {
-            if (userAnswers[questionId]) return;
-
             const buttons = document.querySelectorAll('.option-btn');
-            buttons.forEach(b => {
-                b.disabled = true;
-                b.classList.remove('hover:bg-gray-600');
-            });
+            buttons.forEach(b => b.disabled = true);
 
             const response = await fetch(`${API_BASE}/api/submit-answer`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ question_id: questionId, selected_option: selectedOption })
             });
-            
             const data = await response.json();
             
-            userAnswers[questionId] = {
-                is_correct: data.is_correct,
-                selected_option: selectedOption,
-                correct_answer: data.correct_answer,
-                explanation: data.explanation
-            };
-
+            const expDiv = document.getElementById(`explanation-${questionId}`);
             if (data.is_correct) {
                 score++;
-                document.getElementById('score-display').innerText = score;
-                btnElement.classList.add('bg-green-900/50', 'border-green-500', 'text-green-100');
+                document.getElementById('score-display').innerText = `Score: ${score}`;
+                btnElement.classList.add('bg-green-900', 'border-green-500');
+                expDiv.className = 'mt-4 p-3 rounded-lg border-l-4 border-green-500 bg-green-900/20';
+                expDiv.innerHTML = `<strong class="text-green-400 text-sm">✅ Correct!</strong><br><span class="text-gray-300 text-xs mt-1 block">${data.explanation}</span>`;
             } else {
-                btnElement.classList.add('bg-red-900/50', 'border-red-500', 'text-red-100');
-            }
-
-            document.getElementById('skip-btn').classList.add('hide');
-            showExplanation(questionId, data.is_correct, data.correct_answer, data.explanation);
-        }
-
-        function showExplanation(qId, isCorrect, correctAns, explanation) {
-            const expDiv = document.getElementById(`explanation-${qId}`);
-            if(isCorrect) {
-                expDiv.className = 'p-4 rounded-lg border-l-4 border-green-500 bg-green-900/20 mt-2';
-                expDiv.innerHTML = `<strong class="text-green-400">✅ Correct!</strong><br><span class="text-gray-300 text-xs mt-1 block">${explanation}</span>`;
-            } else {
-                expDiv.className = 'p-4 rounded-lg border-l-4 border-red-500 bg-red-900/20 mt-2';
-                expDiv.innerHTML = `<strong class="text-red-400">❌ Incorrect</strong><br><span class="text-gray-300 text-xs mt-1 block"><b>Correct Answer:</b> ${correctAns}<br><br>${explanation}</span>`;
+                btnElement.classList.add('bg-red-900', 'border-red-500');
+                expDiv.className = 'mt-4 p-3 rounded-lg border-l-4 border-red-500 bg-red-900/20';
+                expDiv.innerHTML = `<strong class="text-red-400 text-sm">❌ Incorrect</strong><br><span class="text-gray-300 text-xs mt-1 block"><b>Ans:</b> ${data.correct_answer}<br><br>${data.explanation}</span>`;
             }
             expDiv.classList.remove('hidden');
-        }
 
-        function nextQuestion() {
-            if (currentQuestionIndex < currentQuestions.length - 1) {
-                currentQuestionIndex++;
-                showQuestion();
-            } else {
-                document.getElementById('test-screen').classList.add('hide');
-                document.getElementById('result-screen').classList.remove('hide');
-                document.getElementById('final-score').innerText = score;
-            }
-        }
-
-        function prevQuestion() {
-            if (currentQuestionIndex > 0) {
-                currentQuestionIndex--;
-                showQuestion();
-            }
+            const nextBtn = document.createElement('button');
+            nextBtn.innerText = currentQuestionIndex === currentQuestions.length - 1 ? "Finish Test 🏁" : "Next Scenario ➡️";
+            nextBtn.className = "mt-4 w-full bg-blue-600 hover:bg-blue-500 text-white font-bold py-2 px-4 rounded-lg";
+            nextBtn.onclick = () => { currentQuestionIndex++; showQuestion(); };
+            expDiv.appendChild(nextBtn);
         }
     </script>
 </body>
